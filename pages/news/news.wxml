@@ -16,7 +16,7 @@
                  <view class="news-tit">{{item.title}}</view>
                  <view class="news-info">{{item.digest}}</view>
             </view> 
-       </view>
-       
+       </view>       
     </view>
+    <view class="add-more" bindtap="addMore">加载更多</view>
 </view>

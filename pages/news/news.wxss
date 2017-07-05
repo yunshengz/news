@@ -21,8 +21,8 @@
     background-color: #28a745;
 }
 .news-list{
-    margin-top: 60rpx;
-    padding: 0 30rpx;
+    margin: 60rpx 30rpx 0;
+    border-bottom: 2rpx solid #cccccc;
 }
 
 .news-item{
@@ -31,7 +31,6 @@
     border-top: 2rpx solid #cccccc;
     clear: both;
 }
-
 .news-item image{
     display: block;
     width: 240rpx;
@@ -55,4 +54,14 @@
     height: 120rpx;
     line-height: 60rpx;
     overflow: hidden;
+}
+.add-more{
+  height: 60rpx;
+  width: 50%;
+  margin: 40rpx auto;
+  text-align: center;
+  line-height: 60rpx;
+  background-color: #28a745;
+  color: #ffffff;
+  font-size: 26rpx;
 }
