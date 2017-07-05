@@ -2,13 +2,12 @@
   "pages":[
     "pages/news/news",
     "pages/index/index",
-    "pages/logs/logs",
     "pages/info/info"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#28a745",
+    "navigationBarTitleText": "今天新闻",
+    "navigationBarTextStyle":"white"
   }
 }

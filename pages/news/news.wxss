@@ -1,4 +1,5 @@
 .nav{ 
+   margin-top: 20rpx;
    border-top: 2rpx solid #cccccc;
    border-left: 2rpx solid #cccccc;
    overflow: hidden;
