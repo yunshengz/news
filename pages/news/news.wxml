@@ -19,4 +19,5 @@
        </view>       
     </view>
     <view class="add-more" bindtap="addMore">加载更多</view>
+    <view class="go-top" bindtap="goTop"></view>
 </view>

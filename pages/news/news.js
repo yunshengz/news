@@ -32,6 +32,7 @@ Page({
        }
      });
   },
+  //加载更多
   addMore: function(e) {
       var that = this,
           next = this.data.add + 1,
@@ -55,6 +56,11 @@ Page({
       }); 
       
   },
+  //返回顶部
+  goTop: function(e) {
+      //没有合适的方法
+  },
+  //监听页面加载
   onLoad: function (options) {
     // Do some initialize when page load.
     var that = this;

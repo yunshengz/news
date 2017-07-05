@@ -65,3 +65,14 @@
   color: #ffffff;
   font-size: 26rpx;
 }
+.go-top{
+  width: 80rpx;
+  height: 80rpx;
+  background: #28a745 url('http://static.gcimg.net/i/201605/XLgmBLkrP2.png') no-repeat center center;
+  display: none;
+  background-size: 100% 100%;
+  position: fixed;
+  bottom: 40rpx;
+  right: 30rpx;
+  border-radius: 50%;
+}
