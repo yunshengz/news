@@ -1,4 +1,5 @@
-<view class="cotainer">
+<view class="page-weather"></view>
+<view class="cotainer {{open ? 'slide' : ''}}" bindtouchstart="slideStart" bindtouchmove="slideMove" bindtouchend="slideEnd" style="{{translate}}">
     <view class="nav">
         <view class="nav-item {{ num == 1 ? 'current' : '' }}" bindtap="goOtherCate" data-index="1">头条</view>
         <view class="nav-item {{ num == 2 ? 'current' : '' }}" bindtap="goOtherCate" data-index="2">娱乐</view>
@@ -10,14 +11,14 @@
         <view class="nav-item {{ num == 8 ? 'current' : '' }}" bindtap="goOtherCate" data-index="8">科技</view>
     </view>
     <view class="news-list">
-       <view class="news-item" data-id="{{item.news_id}}" wx:for="{{newsList}}" bindtap="gotoInfo">
+      <view class="news-item" data-id="{{item.news_id}}" wx:for="{{newsList}}" bindtap="gotoInfo">
             <image src="{{item.text_image0}}" mode="aspectFit"></image>
             <view class="news-intro">
-                 <view class="news-tit">{{item.title}}</view>
-                 <view class="news-info">{{item.digest}}</view>
+                <view class="news-tit">{{item.title}}</view>
+                <view class="news-info">{{item.digest}}</view>
             </view> 
-       </view>       
+      </view>       
     </view>
     <view class="add-more" bindtap="addMore">加载更多</view>
-    <view class="go-top" bindtap="goTop"></view>
+    <view class="go-top" bindtap="goTop"></view>   
 </view>
