@@ -1,5 +1,0 @@
-<view class="container">
-    <image src="{{info.top_image}}" class="img"></image>
-    <view class="title">{{info.title}}</view>
-    <view class="info">{{info.content}}</view>
-</view>
