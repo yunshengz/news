@@ -1,5 +1,12 @@
-<view class="page-weather"></view>
-<view class="cotainer {{open ? 'slide' : ''}}" bindtouchstart="slideStart" bindtouchmove="slideMove" bindtouchend="slideEnd" style="{{translate}}">
+<view class="page-weather">
+      <view class="weather-content">
+          <view class="weather-tit">今天天气</view>
+          <view class="">{{weather[0].type}}</view>
+          <view class="">{{weather[0].high}}/{{weather[0].low}}</view>
+          <view class="">{{weather[0].fengxiang}}，风力{{weather[0].fengli}}</view>
+      </view>
+</view>
+<view class="cotainer {{open ? 'slide' : ''}}" bindtouchstart="slideStart" bindtouchmove="slideMove" bindtouchend="slideEnd" style="{{transition}}">
     <view class="nav">
         <view class="nav-item {{ num == 1 ? 'current' : '' }}" bindtap="goOtherCate" data-index="1">头条</view>
         <view class="nav-item {{ num == 2 ? 'current' : '' }}" bindtap="goOtherCate" data-index="2">娱乐</view>
@@ -11,7 +18,7 @@
         <view class="nav-item {{ num == 8 ? 'current' : '' }}" bindtap="goOtherCate" data-index="8">科技</view>
     </view>
     <view class="news-list">
-      <view class="news-item" data-id="{{item.news_id}}" wx:for="{{newsList}}" bindtap="gotoInfo">
+      <view class="news-item" data-id="{{item.news_id}}" data-index="{{newsType}}" wx:for="{{newsList}}" bindtap="gotoInfo">
             <image src="{{item.text_image0}}" mode="aspectFit"></image>
             <view class="news-intro">
                 <view class="news-tit">{{item.title}}</view>

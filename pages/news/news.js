@@ -1,6 +1,7 @@
 Page({
   data: {
       newsList:[],
+      weather: [],
       open: false,//是否能滑动的标示
       num: 1,//新闻类型
       add: 1,//加载第几页的新闻
@@ -8,16 +9,18 @@ Page({
       newMark: 0,
       startMark: 0,
       endMark: 0,
+      newsType: 1,
       status: 1, //向右滑动标志，向左为0
       toRight: true,
       windowWidth: wx.getSystemInfoSync().windowWidth,
-      translate: ''
+      transition: ''
   },
   //跳转找新闻详情页
   gotoInfo: function(e) {
-      var id = e.currentTarget.dataset.id;
+      var id = e.currentTarget.dataset.id,
+          index = e.currentTarget.dataset.index;
       wx.navigateTo({
-        url: '/pages/info/info?news_id='+id,
+        url: '/pages/info/info?news_id=' + id + '&tableNum=' + index,
       });
   },
   //新闻类型切换
@@ -36,7 +39,8 @@ Page({
        success: function (r) {
          //console.log(r.data.data);
          that.setData({
-           newsList: r.data.data
+           newsList: r.data.data,
+           newsType: index
          });
        }
      });
@@ -86,20 +90,20 @@ Page({
       xNum = this.data.newMark - this.data.startMark;
       //console.log(xNum);
 
+      //向右滑动
+      if(this.data.startMark < this.data.newMark && this.data.status == 1){
 
-      if(this.data.mark < this.data.newMark){
 
-
-        if (this.data.windowWidth * 0.75 > Math.abs(xNum)){
+        if (this.data.windowWidth * 0.7 > Math.abs(xNum)){
 
             this.setData({
-              translate: 'transform: translateX(' + xNum + 'px)'
+              transition: 'transform: translateX(' + xNum + 'px)'
             });
 
         } else {
 
             this.setData({
-              translate: 'transform: translateX(' + that.data.windowWidth * 0.75 + 'px)'
+              transition: 'transform: translateX(' + that.data.windowWidth * 0.7 + 'px)'
             });
         }
       }
@@ -113,11 +117,18 @@ Page({
                   
       // }
       //console.log(xNum);
-      //this.data.mark = this.data.newMark;
+
+      this.data.mark = this.data.newMark;
 
   },
-  slideEnd: e => {
-
+  slideEnd: function(e) {
+      var that = this;
+      
+      if(this.data.status == 1 && this.data.newMark > this.data.startMark) {
+        this.setData({
+          transition: 'transform: translateX(0px)'
+        });
+      }
   },
 
 
@@ -168,6 +179,8 @@ Page({
   onLoad: function (options) {
     // Do some initialize when page load.
     var that = this;
+
+    //获取新闻信息
     wx.request({
       url: 'http://api.dagoogle.cn/news/get-news?pagesize=10&tableNum=1',
       header: {
@@ -181,6 +194,21 @@ Page({
           
       }
     });
+    //获取当前位置，返回的是经纬度
+    wx.getLocation({
+      success: function (res) {
+        console.log(res);
+      }
+    });
+    //获取当地天气（当前写死为郑州的天气）
+    wx.request({
+      url: 'http://wthrcdn.etouch.cn/weather_mini?city=郑州',
+      success: function(r) {
+          that.setData({
+            weather: r.data.data.forecast
+          });
+      }
+    })
     
   },
   onReady: function () {
