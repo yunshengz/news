@@ -1,0 +1,24 @@
+<view class="page-weather"></view>
+<view class="cotainer {{open ? 'slide' : ''}}" bindtouchstart="slideStart" bindtouchmove="slideMove" bindtouchend="slideEnd" style="{{translate}}">
+    <view class="nav">
+        <view class="nav-item {{ num == 1 ? 'current' : '' }}" bindtap="goOtherCate" data-index="1">头条</view>
+        <view class="nav-item {{ num == 2 ? 'current' : '' }}" bindtap="goOtherCate" data-index="2">娱乐</view>
+        <view class="nav-item {{ num == 3 ? 'current' : '' }}" bindtap="goOtherCate" data-index="3">军事</view>
+        <view class="nav-item {{ num == 4 ? 'current' : '' }}" bindtap="goOtherCate" data-index="4">汽车</view>
+        <view class="nav-item {{ num == 5 ? 'current' : '' }}" bindtap="goOtherCate" data-index="5">财经</view>
+        <view class="nav-item {{ num == 6 ? 'current' : '' }}" bindtap="goOtherCate" data-index="6">笑话</view>
+        <view class="nav-item {{ num == 7 ? 'current' : '' }}" bindtap="goOtherCate" data-index="7">体育</view>
+        <view class="nav-item {{ num == 8 ? 'current' : '' }}" bindtap="goOtherCate" data-index="8">科技</view>
+    </view>
+    <view class="news-list">
+      <view class="news-item" data-id="{{item.news_id}}" wx:for="{{newsList}}" bindtap="gotoInfo">
+            <image src="{{item.text_image0}}" mode="aspectFit"></image>
+            <view class="news-intro">
+                <view class="news-tit">{{item.title}}</view>
+                <view class="news-info">{{item.digest}}</view>
+            </view> 
+      </view>       
+    </view>
+    <view class="add-more" bindtap="addMore">加载更多</view>
+    <view class="go-top" bindtap="goTop"></view>   
+</view>
