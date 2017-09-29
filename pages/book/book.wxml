@@ -1,0 +1,8 @@
+<!-- book.wxml -->
+<swiper class="swiper-box" indicator-dots indicator-color="#ffffff" autoplay>
+    <block wx:for="{{imgUrlArr}}">
+        <swiper-item>
+            <image src="{{item}}"></image>
+        </swiper-item>
+    </block>
+</swiper>

@@ -1,0 +1,33 @@
+<!--api.wxml-->
+<button bindtap="chooseImg" >wx.chooseImage</button>
+<view>
+  <view wx:for="{{imgUpList}}" style="width: 40px; height: 40px; float:left;">
+      <image src="{{item}}" style="width:100%;height: 100%;"></image>
+  </view>
+</view>
+<button bindtap="previewImg">wx.previewImage</button>
+<button bindtap="getImgInfo">wx.getImageInfo</button>
+<view>{{imgInfo}}</view>
+<button bindtap="startR">wx.startRecord</button>
+<text>{{startTxt}}</text>
+<button bindtap="stopR">wx.stopRecord</button>
+<button bindtap="playV" wx:if="{{flag}}">wx.playVoice</button>
+<text>{{voiceTxt}}</text>
+<button bindtap="pauseV" wx:if="{{flag}}">wx.pauseVoice</button>
+<button bindtap="playA">wx.playBlackgroundAudio</button>
+<text>{{bgm}}</text>
+<button wx:if="{{state}}" bindtap="getState" size="mini">bgmSatate</button>
+<button wx:if="{{state}}" size="mini" bindtap="bgmSeek">bgmseek</button>
+<button wx:if="{{state}}" size="mini" bindtap="bgmPause">bgmpause</button>
+<button wx:if="{{state}}" size="mini" bindtap="bgmStop">bgmstop</button>
+<audio src="{{audioSrc}}" id="myaduio"></audio>
+<button bindtap="chooseV">wx.chooseVideo</button>
+<text>{{tip}}</text>
+<button bindtap="downFile">wx.downloadFile</button>
+<button bindtap="setS">wx.setStorage</button>
+<button bindtap="getL">wx.getLocation</button>
+<text>{{location}}</text>
+<button bindtap="chooseL">wx.chooseLocation</button>
+<button bindtap="openL">wx.openLocation</button>
+<button bindtap="getSys">wx.getSystemInfo</button>
+<button bindtap="getNet">wx.getNetowrkType</button>

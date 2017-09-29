@@ -1,13 +1,41 @@
 {
-  "pages":[
+  "pages": [
+    "pages/api/api",
     "pages/news/news",
     "pages/index/index",
-    "pages/info/info"
+    "pages/info/info",
+    "pages/book/book"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#28a745",
-    "navigationBarTitleText": "今天新闻",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "浮生社区",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#28a745",
+    "backgroundColor": "#f3f3f3",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/news/news",
+        "text": "新闻",
+        "iconPath": "img/news.png",
+        "selectedIconPath": "img/news-active.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "text": "阅读",
+        "iconPath": "img/book.png",
+        "selectedIconPath": "img/book-active.png"
+      },
+      {
+        "pagePath": "pages/api/api",
+        "text": "API",
+        "iconPath": "img/mus.png",
+        "selectedIconPath": "img/mus-active.png"
+      }
+    ]
   }
 }
